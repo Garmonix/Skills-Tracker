@@ -20,54 +20,54 @@ function renderSkills() {
 
     // Создаем содержимое навыка
     skillItem.innerHTML = `
-      <span class="skill-name">${skill.name} (уровень: ${skill.level})</span>
-      <div class="progress-bar-column">
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: ${(skill.experience / (skill.level * 100)) * 100}%"></div>
-      </div>
+      <span class="skill-name">${skill.name} (Lvl: ${skill.level})</span>
+      <div class="progress-controls">
+        <button onclick="resetExperiance(${index})" class="experience-button experience-button-reset">↺</button>
+        <button onclick="decreaseExperience(${index})" class="experience-button experience-button-down">–</button>
+        <div class="progress-bar-column">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${(skill.experience / (skill.level * 100)) * 100}%"></div>
+          </div>
+        </div>
+        <button onclick="increaseExperience(${index})" class="experience-button experience-button-up">+</button>
       </div>
       <div class="delete-skill-column">
-        <button onclick="deleteSkill(${index})" class="delete-skill-button">удалить</button>
+        <button onclick="deleteSkill(${index})" class="delete-skill-button">Удалить</button>
       </div>
-      
     `;
 
     skillsList.appendChild(skillItem); // Добавляем навык в список
   });
 }
 
+// Функции для изменения опыта
+function increaseExperience(index) {
+  if (skills[index].level < 20) { // Ограничение уровня до 20
+    skills[index].experience += 5; // Увеличиваем опыт на 5 единиц
+    if (skills[index].experience >= skills[index].level * 100) {
+      skills[index].level += 1; // Повышаем уровень, если достигнут максимум
+      skills[index].experience = 0; // Сбрасываем опыт
+    }
+    renderSkills(); // Перерисовываем список
+  }
+}
+
+function decreaseExperience(index) {
+  if (skills[index].experience > 0) { // Уменьшаем опыт, если он больше 0
+    skills[index].experience -= 5;
+    if (skills[index].experience < 0) {
+      skills[index].experience = 0; // Минимальное значение опыта — 0
+    }
+    renderSkills(); // Перерисовываем список
+  }
+}
+
+function resetExperiance(index) {
+  skills[index].experience = 0;
+  renderSkills();
+}
+
 function deleteSkill(index) {
   skills.splice(index, 1);
   renderSkills();
 }
-
-let selectedSkillIndex = null;
-let timerInterval = null;
-
-document.getElementById('start-timer').addEventListener('click', () => {
-  if (selectedSkillIndex !== null) {
-    timerInterval = setInterval(() => {
-      skills[selectedSkillIndex].experience += 1;
-      if (skills[selectedSkillIndex].experience >= 100 * skills[selectedSkillIndex].level) {
-        skills[selectedSkillIndex].level += 1;
-      }
-      renderSkills();
-    }, 1000);
-  }
-});
-
-document.getElementById('stop-timer').addEventListener('click', () => {
-  clearInterval(timerInterval);
-});
-
-window.addEventListener('load', () => {
-    const savedSkills = JSON.parse(localStorage.getItem('skills'));
-    if (savedSkills) {
-      skills.push(...savedSkills);
-      renderSkills();
-    }
-  });
-  
-  window.addEventListener('beforeunload', () => {
-    localStorage.setItem('skills', JSON.stringify(skills));
-  });

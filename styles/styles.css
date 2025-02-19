@@ -1,0 +1,158 @@
+:root {
+  --font-family-title: "SAGRADA", sans-serif;
+  --font-family-text: "Monomakh", sans-serif;
+
+  --color-text: #333;
+  --color-acient: #8b0009;
+  --color-main-background: #f5f5dc;
+
+}
+
+body {
+  min-height: 100%;
+  font-size: 2rem;
+  font-family: var(--font-family-text);
+  background-color: var(--color-main-background);
+  color: var(--color-text);
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-family-title);
+  font-size: 6rem;
+  margin: 0.5em;
+  color: var(--color-acient);
+}
+
+
+#skills-list, #add-skill-form, #timer{
+  align-items: center;
+  justify-content: center;
+  max-width: 80vw;
+  margin: auto;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.skill-name, .progress-controls, .delete-skill-column{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+
+.skill-name, .delete-skill-column{
+  border-bottom: 1px solid grey;
+}
+
+.progress-controls{
+  border: 1px solid grey;
+  border-top: none;
+}
+
+.skill-item:last-child .skill-name,
+.skill-item:last-child .delete-skill-column,
+.skill-item:last-child .progress-controls{
+  border-bottom: none;
+}
+
+.skill-name {
+  justify-content: start;
+}
+
+.progress-bar-column{
+  width: 80%;
+}
+
+.experience-button{
+  background: none;
+  border: none;
+  padding-inline: 1rem;
+  cursor: pointer;
+}
+
+.experience-button:hover {
+  color: var(--color-acient);
+}
+
+.experience-button-reset{
+  font-size: 0.8em;
+  padding-left: 1rem;
+  padding-right: 0;
+}
+
+.progress-bar {
+  position: relative;
+  display: flex;
+  vertical-align: center;
+  margin: auto;
+  width: 100%; /* Ширина шкалы */
+  height: 0.5rem; /* Высота шкалы */
+  background-color: #ddd; /* Фон шкалы */
+  overflow: hidden; /* Скрываем лишнее */
+  border-radius: 30px;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* Чтобы не мешать кликам */
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(10% - 1px),
+    var(--color-main-background) calc(10% - 1px),
+    var(--color-main-background) calc(10%)
+  );
+  background-size: 100% 100%;
+  
+}
+
+
+.progress-fill {
+  display: flex;
+  height: 100%;
+  background-color: var(--color-acient);
+  transition: width 0.3s ease; 
+}
+
+.delete-skill-column{
+  height: 100%;
+}
+
+.delete-skill-button{
+  border: none;
+  background: none;
+  max-width: 10vw;
+  margin: auto;
+}
+
+.delete-skill-button:hover{
+  color: #8b0000;
+  cursor: pointer;
+}
+
+#add-skill-form, #timer{
+  display: flex;
+  margin-top: 2em;
+  justify-content: center;
+  gap: 2em;
+}
+
+#timer{
+  gap: 1em;
+}
+
