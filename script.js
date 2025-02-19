@@ -13,15 +13,26 @@ addSkillForm.addEventListener('submit', (e) => {
 });
 
 function renderSkills() {
-  skillsList.innerHTML = '';
+  skillsList.innerHTML = ''; // Очищаем список навыков
   skills.forEach((skill, index) => {
     const skillItem = document.createElement('div');
     skillItem.classList.add('skill-item');
+
+    // Создаем содержимое навыка
     skillItem.innerHTML = `
-      <span>${skill.name} (Уровень: ${skill.level})</span>
-      <button onclick="deleteSkill(${index})">Удалить</button>
+      <span class="skill-name">${skill.name} (уровень: ${skill.level})</span>
+      <div class="progress-bar-column">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${(skill.experience / (skill.level * 100)) * 100}%"></div>
+      </div>
+      </div>
+      <div class="delete-skill-column">
+        <button onclick="deleteSkill(${index})" class="delete-skill-button">удалить</button>
+      </div>
+      
     `;
-    skillsList.appendChild(skillItem);
+
+    skillsList.appendChild(skillItem); // Добавляем навык в список
   });
 }
 

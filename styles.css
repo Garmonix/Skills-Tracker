@@ -1,116 +1,95 @@
-body {
-   /**
-     Пригодится в большинстве ситуаций
-     (когда, например, нужно будет "прижать" футер к низу сайта)
-    */
-   min-height: 100%;
-   /**
-     Унифицированный интерлиньяж
-    */
-   line-height: 1.5;
- }
- 
- /**
-   Нормализация высоты элемента ссылки при его инспектировании в DevTools
-  */
- a:where([class]) {
-   display: inline-flex;
- }
- 
- /**
-   Курсор-рука при наведении на элемент
-  */
- button,
- label {
-   cursor: pointer;
- }
- 
- /**
-   Приводим к единому цвету svg-элементы
-   (за исключением тех, у которых уже указан
-   атрибут fill со значением 'none' или начинается с 'url')
-  */
- :where([fill]:not(
-   [fill="none"],
-   [fill^="url"]
- )) {
-   fill: currentColor;
- }
- 
- /**
-   Приводим к единому цвету svg-элементы
-   (за исключением тех, у которых уже указан
-   атрибут stroke со значением 'none')
-  */
- :where([stroke]:not(
-   [stroke="none"],
-   [stroke^="url"]
- )) {
-   stroke: currentColor;
- }
- 
- /**
-   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
-  */
- svg * {
-   transition-property: fill, stroke;
- }
- 
- /**
-   Приведение рамок таблиц в классический 'collapse' вид
-  */
- :where(table) {
-   border-collapse: collapse;
-   border-color: currentColor;
- }
- 
- /**
-   Удаляем все анимации и переходы для людей,
-   которые предпочитают их не использовать
-  */
- @media (prefers-reduced-motion: reduce) {
-   *,
-   ::before,
-   ::after {
-     animation-duration: 0.01ms !important;
-     animation-iteration-count: 1 !important;
-     transition-duration: 0.01ms !important;
-     scroll-behavior: auto !important;
-   }
- }
+:root {
+  --font-family-title: "SAGRADA", sans-serif;
+  --font-family-text: "Monomakh", sans-serif;
+}
 
- body {
-    font-family: 'Old Standard TT', serif;
-    background-color: #f5f5dc;
-    color: #333;
-    padding: 20px;
-  }
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background-color: green;
-    width: 0%;
-  }
+body {
+  min-height: 100%;
+  font-size: 2rem;
+  font-family: var(--font-family-text);
+  background-color: #f5f5dc;
+  color: #333;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-family-title);
+  font-size: 6rem;
+  margin: 0.5em;
+  color: #8b0000; /* Цвет первой буквы */
+}
+
+
+#skills-list, #add-skill-form, #timer{
+  align-items: center;
+  justify-content: center;
+  max-width: 80vw;
+  margin: auto;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  
+}
+
+.skill-name, .progress-bar-column, .delete-skill-column{
+  border: 1px solid grey;
+}
+
+.progress-bar-column{
+  height: 100%;
+}
+.progress-bar {
+  display: flex;
+  vertical-align: center;
+  margin: auto;
+  width: 35vw; /* Ширина шкалы */
+  height: 1rem; /* Высота шкалы */
+  background-color: #ddd; /* Фон шкалы */
+  border-radius: 30px; /* Скругление углов */
+  overflow: hidden; /* Скрываем лишнее */
+}
+
+.progress-fill {
+  display: flex;
+  height: 100%;
+  background-color: red;
+  transition: width 0.3s ease; 
+}
+
+.delete-skill-column{
+  height: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.delete-skill-button{
+  border: none;
+  background: none;
+  max-width: 10vw;
+  margin: auto;
+}
+
+.delete-skill-button:hover{
+  color: #8b0000;
+  cursor: pointer;
+}
+
+#add-skill-form, #timer{
+  display: flex;
+  margin-top: 2em;
+  justify-content: center;
+  gap: 2em;
+}
+
+#timer{
+  gap: 1em;
+}
+

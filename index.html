@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skills Tracker</title>
-    <link rel="stylesheet" href="./normaliser.css">
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./normaliser.css" />
+    <link rel="stylesheet" href="./fonts/stylesheet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Skills Tracker</h1>
+      <h1>Skills Tracker</h1>
     </header>
-<main>
-    <section id="skills-list">
-        <table>
-
-        </table>
-    </section>
-    <form id="add-skill-form">
+    <main>
+      <section id="skills-list" class="skills-list">
+      </section>
+      <form id="add-skill-form" class="add-skill-form">
         <input type="text" placeholder="Название навыка" />
         <button type="submit">Добавить навык</button>
-    </form>
-    <div id="timer">
-        <button id="start-timer">Старт</button>
-        <button id="stop-timer">Стоп</button>
-        <span id="time-display">00:00</span>
-    </div>
-</main>
+      </form>
+      <div id="timer" class="timer">
+        <button id="start-timer" class="start-timer">Старт</button>
+        <button id="stop-timer" class="stop-timer">Стоп</button>
+        <span id="time-display" class="time-display">00:00</span>
+      </div>
+    </main>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>

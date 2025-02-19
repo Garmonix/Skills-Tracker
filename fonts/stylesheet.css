@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Monomakh';
+    src: url('Monomakh-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SAGRADA';
+    src: url('SAGRADA-BlackCondensed.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
