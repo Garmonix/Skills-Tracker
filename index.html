@@ -12,18 +12,31 @@
     <header>
       <h1>Skills Tracker</h1>
     </header>
+    <section class="blockquote-section">
+      <blockquote cite="https://www.huxley.net/bnw/four.html">
+        <p>
+          It takes approximately 10,000 hours of practice to achieve mastery in any given field.
+        </p>
+
+      <p> - Malcolm Gladwell, <cite>«Outliers: The Story of Success»</cite></p>
+  </section>
     <main>
-      <section id="skills-list" class="skills-list">
+      <h2>Work timer</h2>
+      <div class="timer total-time">
+        <span id="total-time-display">Total time: 00:00 ч.</span>
+      </div>
+      <div id="timer" class="timer">
+        <div id="time-display" class="time-display">00:00</div>
+        <button id="start-timer" class="start-timer"><span class="timer-button-text">start</span></button>
+        <button id="reset-timer" class="reset-timer"><span class="timer-button-text">reset</span></button>
+      </div>
+      <h2>Skills list</h2>
+      <section id="skills-list" class="skills-list">    
       </section>
       <form id="add-skill-form" class="add-skill-form">
-        <input type="text" placeholder="Название навыка" />
-        <button type="submit">Добавить навык</button>
+        <input type="text" placeholder="skill name" class="add-skill-form-placeholder"/>
+        <button type="submit" class="add-skill-form-submit">add skill</button>
       </form>
-      <div id="timer" class="timer">
-        <button id="start-timer" class="start-timer">Старт</button>
-        <button id="stop-timer" class="stop-timer">Стоп</button>
-        <span id="time-display" class="time-display">00:00</span>
-      </div>
     </main>
 
     <script src="./script.js"></script>

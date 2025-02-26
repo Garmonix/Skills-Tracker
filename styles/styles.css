@@ -1,79 +1,134 @@
 :root {
-  --font-family-title: "SAGRADA", sans-serif;
-  --font-family-text: "Monomakh", sans-serif;
+  --font-family-title: "Arial", sans-serif;
+  --font-family-text: "Arial", sans-serif;
 
-  --color-text: #333;
-  --color-acient: #8b0009;
-  --color-main-background: #f5f5dc;
+  --color-text: #DCDEDF;
+  --color-acient: #1A9FFF;
+  --color-main-background: #272B33;
+  --color-elemeents-background: #2A323C;
+  --color-dark-background: #171D25;
+  --color-dark-background-lighter: #85A2CA;
+  --color-button-play-background: linear-gradient(90deg, rgba(79,200,47,1) 0%, rgba(24,170,77,1) 100%);
+  --color-button-stop-background: linear-gradient(90deg, #3A9BED 0%, #235DCE 100%);
+  --color-button-play-background-hover: linear-gradient(90deg,#70D61D 0%, #38BF3D 100%);
+  --color-button-stop-background-hover: linear-gradient(90deg,#47BFFF 0%, #47BFFF 100%);
 
 }
 
 body {
   min-height: 100%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: var(--font-family-text);
   background-color: var(--color-main-background);
   color: var(--color-text);
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
+  margin: 0;
   text-align: center;
+  background-color: var(--color-dark-background);
 }
 
-h1 {
+h1,h2 {
   font-family: var(--font-family-title);
-  font-size: 6rem;
-  margin: 0.5em;
+  font-size: 4.85rem;
   color: var(--color-acient);
+  text-transform: uppercase;
+  margin: 0px;
 }
 
+h2 {
+  font-size: 2.5rem;
+  padding-left: 2.5rem;
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
 
-#skills-list, #add-skill-form, #timer{
+.add-skill-form-placeholder, .add-skill-form-submit{
+  background-color: var(--color-dark-background);
+  text-align: var(--color-text);
+  color: var(--color-text);
+  border: none;
+  padding: 1rem;
+}
+
+.add-skill-form-placeholder:focus {
+  border: none;
+}
+
+.add-skill-form, .skills-list, .timer, h2, .blockquote-section{
+  background-color: var(--color-elemeents-background);
   align-items: center;
   justify-content: center;
   max-width: 80vw;
   margin: auto;
 }
 
+.blockquote-section{
+  padding: 1rem;
+}
+
+.add-skill-form, .timer{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 0;
+  height: 6rem;
+}
+
 .skill-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   
 }
 
-.skill-name, .progress-controls, .delete-skill-column{
+.skill-name-section, .progress-controls, .delete-skill-column{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4rem;
+  height: 5rem;
 }
 
-.skill-name, .delete-skill-column{
-  border-bottom: 1px solid grey;
+
+.skill-name-section, .delete-skill-column{
+  border-bottom: 2px solid var(--color-dark-background);
 }
 
 .progress-controls{
-  border: 1px solid grey;
+  padding-inline: 1rem;
+  border: 2px solid var(--color-dark-background);
   border-top: none;
 }
 
-.skill-item:last-child .skill-name,
+.skill-item:last-child .skill-name-section,
 .skill-item:last-child .delete-skill-column,
 .skill-item:last-child .progress-controls{
   border-bottom: none;
 }
 
 .skill-name {
+  padding-inline: 3rem;
+}
+
+.skill-name-section{
+  display: inline-flex;
   justify-content: start;
 }
 
 .progress-bar-column{
+  padding-top: 2.2rem;
   width: 80%;
 }
 
 .experience-button{
+  color: var(--color-text);
   background: none;
   border: none;
   padding-inline: 1rem;
@@ -90,6 +145,7 @@ h1 {
   padding-right: 0;
 }
 
+
 .progress-bar {
   position: relative;
   display: flex;
@@ -97,7 +153,7 @@ h1 {
   margin: auto;
   width: 100%; /* Ширина шкалы */
   height: 0.5rem; /* Высота шкалы */
-  background-color: #ddd; /* Фон шкалы */
+  background-color: var(--color-dark-background); /* Фон шкалы */
   overflow: hidden; /* Скрываем лишнее */
   border-radius: 30px;
 }
@@ -129,11 +185,23 @@ h1 {
   transition: width 0.3s ease; 
 }
 
+
+.experiense{
+  display: flex;
+  align-items: end;
+}
+
+.experiense-text{
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
 .delete-skill-column{
   height: 100%;
 }
 
 .delete-skill-button{
+  color: var(--color-text);
   border: none;
   background: none;
   max-width: 10vw;
@@ -141,18 +209,71 @@ h1 {
 }
 
 .delete-skill-button:hover{
-  color: #8b0000;
+  color: var(--color-acient);
   cursor: pointer;
 }
 
-#add-skill-form, #timer{
+.start-timer, .stop-timer, .reset-timer{
+  width: 10.125rem;
+  position: relative;
+  height: 3rem;
   display: flex;
-  margin-top: 2em;
-  justify-content: center;
-  gap: 2em;
+  justify-content: start;
+  align-items: center;
+  background: var(--color-button-play-background);
+  color: var(--color-text);
+  border: none;
+  padding-right: 1.5rem;
+  padding-left: 0px;
+  border-radius: 5px;
 }
 
-#timer{
-  gap: 1em;
+.total-time{
+  color: var(--color-acient);
+  font-size: 2rem;
 }
 
+
+.stop-timer {
+  background: var(--color-button-stop-background);
+}
+
+.start-timer::before, .stop-timer::before, .reset-timer::before{
+  content: '';
+  display: inline-flex;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.start-timer::before{
+  background: url(../icons/play-icon.svg) center/80% no-repeat;
+}
+
+.stop-timer::before{
+  background: url(../icons/close_icon.svg) center/80% no-repeat;
+}
+
+.reset-timer::before{
+  background: url(../icons/reset_icon.svg) center/80% no-repeat;
+}
+
+.reset-timer{
+  background: var(--color-dark-background)
+}
+
+.start-timer:hover{
+background: var(--color-button-play-background-hover);
+}
+
+.stop-timer:hover{
+  background: var(--color-button-stop-background-hover);
+}
+
+.reset-timer:hover{
+  background: var(--color-dark-background-lighter);
+}
+
+.selected-skill {
+  background:linear-gradient(90deg, #3E5978 0%, #235DCE 100%);
+  border: 1px solid var(--color-text);
+}
