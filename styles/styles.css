@@ -56,11 +56,12 @@ h2 {
   padding: 1rem;
 }
 
+
 .add-skill-form-placeholder:focus {
   border: none;
 }
 
-.add-skill-form, .skills-list, .timer, h2, .blockquote-section{
+.add-skill-form, .skills-list, .timer, h2, .blockquote-section, .description{
   background-color: var(--color-elemeents-background);
   align-items: center;
   justify-content: center;
@@ -68,9 +69,10 @@ h2 {
   margin: auto;
 }
 
-.blockquote-section{
-  padding: 1rem;
+.blockquote-section, .description{
+  padding: 3rem;
 }
+
 
 .add-skill-form, .timer{
   display: flex;
