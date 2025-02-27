@@ -358,6 +358,10 @@ padding-bottom: 0;
 .add-skill-form-submit, .add-skill-form-placeholder{
   font-size: 1rem;
 }
+
+.add-skill-form{
+  gap: 1rem;
+}
 }
 
 
