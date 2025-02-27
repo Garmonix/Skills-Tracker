@@ -126,11 +126,10 @@ function renderSkills() {
     skillItem.dataset.index = index; // Сохраняем индекс навыка в data-атрибуте
     skillItem.innerHTML = `
       <div class='skill-name-section'>
-        <button onclick="resetLevel(${index})" class="experience-button experience-button-reset-lvl">↺</button>
         <span class="skill-name">${skill.name} (Lvl: ${skill.level})</span>
+        <button onclick="resetLevel(${index})" class="experience-button experience-button-reset-lvl">↺</button>
       </div>
       <div class="progress-controls">
-        <button onclick="resetExperience(${index})" class="experience-button experience-button-reset">↺</button>
         <button onclick="decreaseExperience(${index})" class="experience-button experience-button-down">-</button>
         <div class="progress-bar-column">
           <div class="progress-bar">
@@ -138,6 +137,7 @@ function renderSkills() {
           </div>
           <div class="experiense">
             <p class="experiense-text">exp: ${skill.experience}/${(skill.level * 100)}</p>
+            <button onclick="resetExperience(${index})" class="experience-button experience-button-reset">↺</button>
           </div>
         </div>
         <button onclick="increaseExperience(${index})" class="experience-button experience-button-up">+</button>

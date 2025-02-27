@@ -106,6 +106,7 @@ blockquote{
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  border-radius: 5px;
   
 }
 
@@ -141,7 +142,6 @@ blockquote{
 
 .skill-name-section{
   display: inline-flex;
-  justify-content: start;
 }
 
 .progress-bar-column{
@@ -153,7 +153,6 @@ blockquote{
   color: var(--color-text);
   background: none;
   border: none;
-  padding-inline: 1rem;
   cursor: pointer;
 }
 
@@ -162,8 +161,6 @@ blockquote{
 }
 
 .experience-button-reset{
-  font-size: 0.8em;
-  padding-left: 1rem;
   padding-right: 0;
 }
 
@@ -299,3 +296,68 @@ background: var(--color-button-play-background-hover);
   background:linear-gradient(90deg, #3E5978 0%, #235DCE 100%);
   border: 1px solid var(--color-text);
 }
+
+@media (max-width:767px) {
+  .timer {
+    gap: 0.5rem;
+  }
+
+  .start-timer, .stop-timer, .reset-timer{
+    max-width: 120px;
+  }
+
+.skill-item{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-dark-background);
+}
+
+.progress-controls, .delete-skill-column,.skill-name-section{
+  width: 95%;
+  border: none;
+}
+
+.skill-name-section, .progress-controls, .experience-button-down{
+  height: 4rem;
+}
+
+.progress-bar-column{
+  padding: 0;
+}
+.skill-name {
+  padding-inline: 0;
+}
+
+.skills-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-button-reset{
+ position: relative;
+ padding: 0px;
+ top: -3px;
+}
+.experience-button-up, .experience-button-down{
+  position: relative;
+  top: -17px;
+  padding-inline: 10px;
+
+}
+
+.experience-text{
+padding-bottom: 0;
+}
+
+.delete-skill-button{
+  padding-top: 0.5rem;
+  padding-bottom: 0.8rem;
+}
+
+.add-skill-form-submit, .add-skill-form-placeholder{
+  font-size: 1rem;
+}
+}
+
+
