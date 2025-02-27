@@ -17,7 +17,7 @@
 
 body {
   min-height: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: var(--font-family-text);
   background-color: var(--color-main-background);
   color: var(--color-text);
@@ -48,6 +48,9 @@ h2 {
   padding-top: 2rem;
 }
 
+p {
+  margin: 0;
+}
 .add-skill-form-placeholder, .add-skill-form-submit{
   background-color: var(--color-dark-background);
   text-align: var(--color-text);
@@ -69,8 +72,23 @@ h2 {
   margin: auto;
 }
 
+blockquote{
+  margin: 0;
+}
+.blockquote-section{
+  text-align: center;
+}
+
+
 .blockquote-section, .description{
-  padding: 3rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.description{
+  padding-top: 0;
+  padding-inline: 1rem;
+  font-size: 1.5rem;
 }
 
 
@@ -84,7 +102,7 @@ h2 {
 
 .skill-item {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 280px 2fr 1fr;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -101,6 +119,8 @@ h2 {
 
 .skill-name-section, .delete-skill-column{
   border-bottom: 2px solid var(--color-dark-background);
+  max-width: 300px;
+  white-space: preserve nowrap;
 }
 
 .progress-controls{
@@ -116,7 +136,7 @@ h2 {
 }
 
 .skill-name {
-  padding-inline: 3rem;
+  padding-inline: 1rem;
 }
 
 .skill-name-section{
